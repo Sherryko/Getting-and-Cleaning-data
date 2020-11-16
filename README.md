@@ -66,3 +66,5 @@ library(dplyr)
 groupData <- mergedDT %>%
   group_by(Subject, Activity) %>%
   summarise_all(mean)
+
+write.table(groupData,"./MeanData.txt", row.names = FALSE) 
