@@ -11,6 +11,8 @@ activitylabels <- fread("UCI HAR Dataset/activity_labels.txt",
                         col.names = c("label", "activity"))
 features <- fread("UCI HAR Dataset/features.txt",
                   col.names = c("index", "feature"))
+
+## extract only the measurements on the mean and standard deviation for each measurement
 features_wanted <- grep("(mean|std)\\(\\)", features[, feature])
 measurements <- features[features_wanted, feature]
 measurements <- gsub("[()]", "", measurements)
